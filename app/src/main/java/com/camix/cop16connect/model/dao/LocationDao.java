@@ -16,6 +16,12 @@ public interface LocationDao {
     @Query("SELECT * FROM locations WHERE id = :id")
     Location getById(int id);
 
+    @Query("SELECT * FROM locations WHERE name = :name")
+    Location getByName(String name);
+
+    @Query("SELECT * FROM locations WHERE latitude = :latitude AND longitude = :longitude")
+    Location getByPosition(String latitude, String longitude);
+
     @Insert
     void insert(Location location);
 

@@ -1,54 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/et_location_name"
+        android:id="@+id/et_update_location_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Location Name" />
 
     <EditText
-        android:id="@+id/et_location_description"
+        android:id="@+id/et_update_location_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Location Description" />
 
     <EditText
-        android:id="@+id/et_location_latitude"
+        android:id="@+id/et_update_location_latitude"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Latitude" />
 
     <EditText
-        android:id="@+id/et_location_longitude"
+        android:id="@+id/et_update_location_longitude"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Longitude" />
 
     <Button
-        android:id="@+id/btn_add_location"
+        android:id="@+id/btn_update_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Location" />
+        android:text="Update" />
 
     <Button
-        android:id="@+id/btn_update_location"
+        android:id="@+id/btn_update_cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Update Location" />
-
-    <Button
-        android:id="@+id/btn_delete_location"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Delete Location" />
-
-    <ListView
-        android:id="@+id/lv_locations"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="Cancel" />
 </LinearLayout>
