@@ -1,54 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/et_user_name"
+        android:id="@+id/et_update_user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="User Name" />
 
     <EditText
-        android:id="@+id/et_user_email"
+        android:id="@+id/et_update_user_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="User Email" />
 
     <EditText
-        android:id="@+id/et_user_password"
+        android:id="@+id/et_update_user_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
         android:inputType="textPassword" />
 
-    <Spinner
-        android:id="@+id/spinner_user_role"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <Button
-        android:id="@+id/btn_add_user"
+        android:id="@+id/btn_update_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add User" />
+        android:text="Update" />
 
     <Button
-        android:id="@+id/btn_update_user"
+        android:id="@+id/btn_update_cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Update User" />
-
-    <Button
-        android:id="@+id/btn_delete_user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Delete User" />
-
-    <ListView
-        android:id="@+id/lv_users"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="Cancel" />
 </LinearLayout>

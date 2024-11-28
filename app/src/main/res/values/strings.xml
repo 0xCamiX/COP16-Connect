@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">COP16 Connect</string>
+    <string-array name="user_roles">
+        <item>admin</item>
+        <item>user</item>
+    </string-array>
 </resources>
