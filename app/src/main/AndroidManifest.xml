@@ -28,10 +28,36 @@
         </activity>
 
         <activity
-            android:name=".view.AdminActivity"
+            android:name=".view.admin.AdminActivity"
             android:exported="true">
         </activity>
 
+        <!-- Admin -->
+
+        <activity
+            android:name=".view.admin.SpeciesActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".view.admin.LocationActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".view.admin.HabitatsActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".view.admin.HabitatsLocationsActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".view.admin.EventActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".view.admin.UsersActivity"
+            android:exported="true">
+        </activity>
 
     </application>
 

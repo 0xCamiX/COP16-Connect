@@ -1,13 +1,13 @@
-package com.camix.cop16connect.view;
+package com.camix.cop16connect.view.admin;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import com.camix.cop16connect.R;
 
-public class AdminActivity extends AppCompatActivity {
+public class SpeciesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin);
+        setContentView(R.layout.activity_species);
     }
 }

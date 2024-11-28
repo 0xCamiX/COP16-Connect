@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.camix.cop16connect.R;
 import com.camix.cop16connect.database.AppDatabase;
 import com.camix.cop16connect.model.User;
+import com.camix.cop16connect.view.admin.AdminActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText etUsername, etPassword, etEmail;
