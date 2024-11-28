@@ -27,6 +27,12 @@
             android:exported="true">
         </activity>
 
+        <activity
+            android:name=".view.AdminActivity"
+            android:exported="true">
+        </activity>
+
+
     </application>
 
 </manifest>
