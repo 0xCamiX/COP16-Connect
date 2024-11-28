@@ -19,10 +19,10 @@
         android:layout_marginTop="16dp" />
 
     <Button
-        android:id="@+id/btn_manage_species"
+        android:id="@+id/btn_manage_users"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Manage Species"
+        android:text="Manage Users"
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,27 +33,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Manage Locations"
-        app:layout_constraintTop_toBottomOf="@id/btn_manage_species"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
-
-    <Button
-        android:id="@+id/btn_manage_habitats"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Manage Habitats"
-        app:layout_constraintTop_toBottomOf="@id/btn_manage_locations"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
-
-    <Button
-        android:id="@+id/btn_manage_habitats_locations"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Manage Habitats with Locations"
-        app:layout_constraintTop_toBottomOf="@id/btn_manage_habitats"
+        app:layout_constraintTop_toBottomOf="@id/btn_manage_users"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
@@ -63,17 +43,27 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Manage Events"
-        app:layout_constraintTop_toBottomOf="@id/btn_manage_habitats_locations"
+        app:layout_constraintTop_toBottomOf="@id/btn_manage_locations"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
     <Button
-        android:id="@+id/btn_manage_users"
+        android:id="@+id/btn_manage_habitats"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Manage Users"
+        android:text="Manage Habitats"
         app:layout_constraintTop_toBottomOf="@id/btn_manage_events"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btn_manage_species"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Manage Species"
+        app:layout_constraintTop_toBottomOf="@id/btn_manage_habitats"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />

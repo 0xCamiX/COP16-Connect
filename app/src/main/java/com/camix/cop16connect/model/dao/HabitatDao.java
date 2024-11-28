@@ -6,21 +6,12 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.camix.cop16connect.model.Habitat;
-
 import java.util.List;
+
+import com.camix.cop16connect.model.Habitat;
 
 @Dao
 public interface HabitatDao {
-    @Query("SELECT * FROM habitats")
-    List<Habitat> getAll();
-
-    @Query("SELECT * FROM habitats WHERE id = :id")
-    Habitat getById(int id);
-
-    @Query("SELECT * FROM habitats WHERE name = :name")
-    Habitat getByName(String name);
-
     @Insert
     void insert(Habitat habitat);
 
@@ -29,4 +20,10 @@ public interface HabitatDao {
 
     @Delete
     void delete(Habitat habitat);
+
+    @Query("SELECT * FROM habitats WHERE name = :name LIMIT 1")
+    Habitat findByName(String name);
+
+    @Query("SELECT * FROM habitats")
+    List<Habitat> getAll();
 }

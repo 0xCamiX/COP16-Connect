@@ -18,7 +18,6 @@ public class AdminActivity extends AppCompatActivity {
         Button btnManageSpecies = findViewById(R.id.btn_manage_species);
         Button btnManageLocations = findViewById(R.id.btn_manage_locations);
         Button btnManageHabitats = findViewById(R.id.btn_manage_habitats);
-        Button btnManageHabitatsLocations = findViewById(R.id.btn_manage_habitats_locations);
         Button btnManageEvents = findViewById(R.id.btn_manage_events);
         Button btnManageUsers = findViewById(R.id.btn_manage_users);
 
@@ -40,13 +39,6 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AdminActivity.this, HabitatsActivity.class));
-            }
-        });
-
-        btnManageHabitatsLocations.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(AdminActivity.this, HabitatsLocationsActivity.class));
             }
         });
 

@@ -4,67 +4,62 @@ import android.content.Context;
 
 import com.camix.cop16connect.database.AppDatabase;
 import com.camix.cop16connect.model.Habitat;
+import com.camix.cop16connect.model.dao.HabitatDao;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.function.Consumer;
 
 public class HabitatController {
-    private AppDatabase db;
-    private ExecutorService executorService;
+    private final HabitatDao habitatDao;
+    private final ExecutorService executorService;
 
     public HabitatController(Context context) {
-        db = AppDatabase.getInstance(context);
+        AppDatabase db = AppDatabase.getInstance(context);
+        habitatDao = db.habitatDao();
         executorService = Executors.newSingleThreadExecutor();
     }
 
     public void addHabitat(Habitat habitat, Runnable callback) {
         executorService.execute(() -> {
-            db.habitatDao().insert(habitat);
+            habitatDao.insert(habitat);
             callback.run();
         });
     }
 
     public void updateHabitatByName(String name, Habitat updatedHabitat, Runnable callback) {
         executorService.execute(() -> {
-            Habitat habitat = db.habitatDao().getByName(name);
+            Habitat habitat = habitatDao.findByName(name);
             if (habitat != null) {
                 updatedHabitat.setId(habitat.getId());
-                db.habitatDao().update(updatedHabitat);
+                habitatDao.update(updatedHabitat);
+                callback.run();
             }
-            callback.run();
         });
     }
 
     public void deleteHabitatByName(String name, Runnable callback) {
         executorService.execute(() -> {
-            Habitat habitat = db.habitatDao().getByName(name);
+            Habitat habitat = habitatDao.findByName(name);
             if (habitat != null) {
-                db.habitatDao().delete(habitat);
+                habitatDao.delete(habitat);
+                callback.run();
             }
-            callback.run();
         });
     }
 
-    public void findHabitatById(int id, HabitatCallback callback) {
+    public void findHabitatById(String name, Consumer<Habitat> callback) {
         executorService.execute(() -> {
-            Habitat habitat = db.habitatDao().getById(id);
-            callback.onHabitatFound(habitat);
+            Habitat habitat = habitatDao.findByName(name);
+            callback.accept(habitat);
         });
     }
 
-    public void loadHabitats(HabitatListCallback callback) {
+    public void loadHabitats(Consumer<List<Habitat>> callback) {
         executorService.execute(() -> {
-            List<Habitat> habitats = db.habitatDao().getAll();
-            callback.onHabitatsLoaded(habitats);
+            List<Habitat> habitats = habitatDao.getAll();
+            callback.accept(habitats);
         });
-    }
-
-    public interface HabitatCallback {
-        void onHabitatFound(Habitat habitat);
-    }
-
-    public interface HabitatListCallback {
-        void onHabitatsLoaded(List<Habitat> habitats);
     }
 }
