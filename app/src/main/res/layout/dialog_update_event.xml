@@ -1,60 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/et_event_title"
+        android:id="@+id/et_update_event_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Event Title" />
 
     <EditText
-        android:id="@+id/et_event_description"
+        android:id="@+id/et_update_event_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Event Description" />
 
     <EditText
-        android:id="@+id/et_event_start_date"
+        android:id="@+id/et_update_event_start_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Start Date" />
 
     <EditText
-        android:id="@+id/et_event_end_date"
+        android:id="@+id/et_update_event_end_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="End Date" />
 
     <Spinner
-        android:id="@+id/spinner_event_location"
+        android:id="@+id/spinner_update_event_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/btn_add_event"
+        android:id="@+id/btn_update_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Event" />
+        android:text="Update" />
 
     <Button
-        android:id="@+id/btn_update_event"
+        android:id="@+id/btn_update_cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Update Event" />
-
-    <Button
-        android:id="@+id/btn_delete_event"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Delete Event" />
-
-    <ListView
-        android:id="@+id/lv_events"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:text="Cancel" />
 </LinearLayout>

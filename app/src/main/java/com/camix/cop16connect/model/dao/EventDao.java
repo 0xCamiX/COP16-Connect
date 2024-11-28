@@ -18,6 +18,9 @@ public interface EventDao {
     @Query("SELECT * FROM events WHERE id = :id")
     Event getById(int id);
 
+    @Query("SELECT * FROM events WHERE title = :title")
+    Event getByTitle(String title);
+
     @Insert
     void insert(Event event);
 
