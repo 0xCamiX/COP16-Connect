@@ -1,4 +1,4 @@
-package com.camix.cop16connect;
+package com.camix.cop16connect.view;
 
 import android.os.Bundle;
 
@@ -8,7 +8,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.camix.cop16connect.model.Event;
+import com.camix.cop16connect.R;
 
 public class MainActivity extends AppCompatActivity {
     @Override
