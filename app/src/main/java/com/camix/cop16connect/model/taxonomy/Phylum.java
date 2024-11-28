@@ -1,4 +1,4 @@
-package com.camix.cop16connect.model;
+package com.camix.cop16connect.model.taxonomy;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
