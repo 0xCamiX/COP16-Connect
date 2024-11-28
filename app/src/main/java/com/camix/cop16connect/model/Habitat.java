@@ -2,7 +2,6 @@ package com.camix.cop16connect.model;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import java.util.LinkedList;
 
 @Entity(tableName = "habitats")
 public class Habitat {
@@ -10,14 +9,13 @@ public class Habitat {
     private int id;
     private String name;
     private String description;
-    private LinkedList<Location> locations;
+
     private String image;
 
-    public Habitat(int id, String name, String description, LinkedList<Location> locations, String image) {
+    public Habitat(int id, String name, String description, String image) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.locations = locations;
         this.image = image;
     }
 
@@ -47,14 +45,6 @@ public class Habitat {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public LinkedList<Location> getLocations() {
-        return locations;
-    }
-
-    public void setLocations(LinkedList<Location> locations) {
-        this.locations = locations;
     }
 
     public String getImage() {
