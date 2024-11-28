@@ -17,7 +17,8 @@ public class ClassTax {
     }
 
     // Constructor sin argumentos requerido por Room
-    public ClassTax() {}
+    public ClassTax() {
+    }
 
     // Getters y setters
     public int getId() {

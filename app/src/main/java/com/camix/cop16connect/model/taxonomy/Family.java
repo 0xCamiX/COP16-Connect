@@ -17,7 +17,8 @@ public class Family {
     }
 
     // Constructor sin argumentos requerido por Room
-    public Family() {}
+    public Family() {
+    }
 
     // Getters y setters
     public int getId() {

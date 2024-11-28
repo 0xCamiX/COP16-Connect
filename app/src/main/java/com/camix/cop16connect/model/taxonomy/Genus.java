@@ -17,7 +17,8 @@ public class Genus {
     }
 
     // Constructor sin argumentos requerido por Room
-    public Genus() {}
+    public Genus() {
+    }
 
     // Getters y setters
     public int getId() {

@@ -7,11 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.camix.cop16connect.R;
+import com.camix.cop16connect.adapter.LocationAdapter;
 import com.camix.cop16connect.controller.LocationController;
 import com.camix.cop16connect.model.Location;
-import com.camix.cop16connect.adapter.LocationAdapter;
 
 public class LocationActivity extends AppCompatActivity {
 

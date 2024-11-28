@@ -9,12 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.camix.cop16connect.R;
+import com.camix.cop16connect.adapter.UserAdapter;
 import com.camix.cop16connect.controller.UserController;
 import com.camix.cop16connect.model.User;
-import com.camix.cop16connect.adapter.UserAdapter;
-import java.util.List;
 
 public class UsersActivity extends AppCompatActivity {
 

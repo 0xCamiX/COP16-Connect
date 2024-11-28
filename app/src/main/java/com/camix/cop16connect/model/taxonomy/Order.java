@@ -17,7 +17,8 @@ public class Order {
     }
 
     // Constructor sin argumentos requerido por Room
-    public Order() {}
+    public Order() {
+    }
 
     // Getters y setters
     public int getId() {

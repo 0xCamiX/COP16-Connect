@@ -21,7 +21,8 @@ public class Location {
     }
 
     // Constructor sin argumentos requerido por Room
-    public Location() {}
+    public Location() {
+    }
 
     // Getters y setters
     public int getId() {

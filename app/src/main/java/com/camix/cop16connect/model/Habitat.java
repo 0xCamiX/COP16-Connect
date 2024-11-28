@@ -20,7 +20,8 @@ public class Habitat {
     }
 
     // Constructor sin argumentos requerido por Room
-    public Habitat() {}
+    public Habitat() {
+    }
 
     // Getters y setters
     public int getId() {

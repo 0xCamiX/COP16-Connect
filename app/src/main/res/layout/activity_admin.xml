@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btn_manage_species"
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btn_manage_locations"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@id/btn_manage_species"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btn_manage_habitats"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@id/btn_manage_locations"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btn_manage_habitats_locations"
@@ -56,7 +56,7 @@
         app:layout_constraintTop_toBottomOf="@id/btn_manage_habitats"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btn_manage_events"
@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@id/btn_manage_habitats_locations"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btn_manage_users"
@@ -76,6 +76,6 @@
         app:layout_constraintTop_toBottomOf="@id/btn_manage_events"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

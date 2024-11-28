@@ -1,8 +1,10 @@
 package com.camix.cop16connect.controller;
 
 import android.content.Context;
+
 import com.camix.cop16connect.database.AppDatabase;
 import com.camix.cop16connect.model.User;
+
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

@@ -17,7 +17,8 @@ public class Phylum {
     }
 
     // Constructor sin argumentos requerido por Room
-    public Phylum() {}
+    public Phylum() {
+    }
 
     // Getters y setters
     public int getId() {

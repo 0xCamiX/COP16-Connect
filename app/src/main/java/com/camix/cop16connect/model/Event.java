@@ -23,7 +23,8 @@ public class Event {
     }
 
     // Constructor sin argumentos requerido por Room
-    public Event() {}
+    public Event() {
+    }
 
     // Getters y setters
     public int getId() {

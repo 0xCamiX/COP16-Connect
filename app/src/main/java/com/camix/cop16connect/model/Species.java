@@ -33,7 +33,8 @@ public class Species {
     }
 
     // Constructor sin argumentos requerido por Room
-    public Species() {}
+    public Species() {
+    }
 
     // Getters y setters
     public int getId() {

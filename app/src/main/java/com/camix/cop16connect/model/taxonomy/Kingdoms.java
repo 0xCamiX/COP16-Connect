@@ -15,7 +15,8 @@ public class Kingdoms {
     }
 
     // Constructor sin argumentos requerido por Room
-    public Kingdoms() {}
+    public Kingdoms() {
+    }
 
     // Getters y setters
     public int getId() {
