@@ -1,12 +1,15 @@
 package com.camix.cop16connect.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 import java.util.LinkedList;
 
+@Entity(tableName = "habitats")
 public class Habitat {
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;
     private String description;
-    // List of location
     private LinkedList<Location> locations;
     private String image;
 
@@ -18,6 +21,10 @@ public class Habitat {
         this.image = image;
     }
 
+    // Constructor sin argumentos requerido por Room
+    public Habitat() {}
+
+    // Getters y setters
     public int getId() {
         return id;
     }

@@ -1,6 +1,11 @@
 package com.camix.cop16connect.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "events")
 public class Event {
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String title;
     private String description;
@@ -17,6 +22,10 @@ public class Event {
         this.locationId = locationId;
     }
 
+    // Constructor sin argumentos requerido por Room
+    public Event() {}
+
+    // Getters y setters
     public int getId() {
         return id;
     }

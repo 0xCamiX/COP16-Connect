@@ -1,6 +1,11 @@
 package com.camix.cop16connect.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "locations")
 public class Location {
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;
     private String description;
@@ -15,6 +20,10 @@ public class Location {
         this.longitude = longitude;
     }
 
+    // Constructor sin argumentos requerido por Room
+    public Location() {}
+
+    // Getters y setters
     public int getId() {
         return id;
     }

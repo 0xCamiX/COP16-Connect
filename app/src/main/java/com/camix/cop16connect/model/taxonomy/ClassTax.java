@@ -1,18 +1,25 @@
 package com.camix.cop16connect.model.taxonomy;
 
-public class Class {
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "classes")
+public class ClassTax {
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;
-    private String description;
     private int phylumId;
 
-    public Class(int id, String name, String description, int phylumId) {
+    public ClassTax(int id, String name, int phylumId) {
         this.id = id;
         this.name = name;
-        this.description = description;
         this.phylumId = phylumId;
     }
 
+    // Constructor sin argumentos requerido por Room
+    public ClassTax() {}
+
+    // Getters y setters
     public int getId() {
         return id;
     }
@@ -27,14 +34,6 @@ public class Class {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public int getPhylumId() {

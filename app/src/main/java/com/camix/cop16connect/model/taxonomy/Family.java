@@ -1,18 +1,25 @@
 package com.camix.cop16connect.model.taxonomy;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "families")
 public class Family {
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;
-    private String description;
     private int orderId;
 
-    public Family(int id, String name, String description, int orderId) {
+    public Family(int id, String name, int orderId) {
         this.id = id;
         this.name = name;
-        this.description = description;
         this.orderId = orderId;
     }
 
+    // Constructor sin argumentos requerido por Room
+    public Family() {}
+
+    // Getters y setters
     public int getId() {
         return id;
     }
@@ -27,14 +34,6 @@ public class Family {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public int getOrderId() {

@@ -1,16 +1,23 @@
 package com.camix.cop16connect.model.taxonomy;
 
-public class Kindom {
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "kingdoms")
+public class Kingdoms {
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;
-    private String description;
 
-    public Kindom(int id, String name, String description) {
+    public Kingdoms(int id, String name) {
         this.id = id;
         this.name = name;
-        this.description = description;
     }
 
+    // Constructor sin argumentos requerido por Room
+    public Kingdoms() {}
+
+    // Getters y setters
     public int getId() {
         return id;
     }
@@ -25,13 +32,5 @@ public class Kindom {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 }
