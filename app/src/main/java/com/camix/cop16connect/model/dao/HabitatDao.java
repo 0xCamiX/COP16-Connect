@@ -18,6 +18,9 @@ public interface HabitatDao {
     @Query("SELECT * FROM habitats WHERE id = :id")
     Habitat getById(int id);
 
+    @Query("SELECT * FROM habitats WHERE name = :name")
+    Habitat getByName(String name);
+
     @Insert
     void insert(Habitat habitat);
 

@@ -1,49 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/et_habitat_name"
+        android:id="@+id/et_update_habitat_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Habitat Name" />
 
     <EditText
-        android:id="@+id/et_habitat_description"
+        android:id="@+id/et_update_habitat_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Habitat Description" />
 
     <EditText
-        android:id="@+id/et_habitat_image"
+        android:id="@+id/et_update_habitat_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Habitat Image URL" />
 
     <Button
-        android:id="@+id/btn_add_habitat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Habitat" />
-
-    <Button
-        android:id="@+id/btn_update_habitat"
+        android:id="@+id/btn_confirm_update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Update Habitat" />
-
-    <Button
-        android:id="@+id/btn_delete_habitat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Delete Habitat" />
-
-    <ListView
-        android:id="@+id/lv_habitats"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
 </LinearLayout>
