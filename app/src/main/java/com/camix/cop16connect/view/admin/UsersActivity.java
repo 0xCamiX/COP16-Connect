@@ -11,12 +11,10 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 import com.camix.cop16connect.R;
-import com.camix.cop16connect.database.AppDatabase;
+import com.camix.cop16connect.controller.UserController;
 import com.camix.cop16connect.model.User;
 import com.camix.cop16connect.adapter.UserAdapter;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class UsersActivity extends AppCompatActivity {
 
@@ -24,8 +22,7 @@ public class UsersActivity extends AppCompatActivity {
     private Spinner spinnerUserRole;
     private Button btnAddUser, btnUpdateUser, btnDeleteUser;
     private ListView lvUsers;
-    private AppDatabase db;
-    private ExecutorService executorService;
+    private UserController userController;
     private User selectedUser;
 
     @Override
@@ -42,109 +39,59 @@ public class UsersActivity extends AppCompatActivity {
         btnDeleteUser = findViewById(R.id.btn_delete_user);
         lvUsers = findViewById(R.id.lv_users);
 
-        // Initialize the database and executor service
-        db = AppDatabase.getInstance(this);
-        executorService = Executors.newSingleThreadExecutor();
+        userController = new UserController(this);
 
-        // Set up the spinner for user roles
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.user_roles, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerUserRole.setAdapter(adapter);
 
-        btnAddUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addUser();
-            }
-        });
+        btnAddUser.setOnClickListener(v -> addUser());
+        btnUpdateUser.setOnClickListener(v -> showUpdateUserDialog());
+        btnDeleteUser.setOnClickListener(v -> deleteUser());
 
-        btnUpdateUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showUpdateUserDialog();
-            }
-        });
-
-        btnDeleteUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                deleteUser();
-            }
-        });
-
-        // Load users into ListView
         loadUsers();
     }
 
     private void showUpdateUserDialog() {
         String username = etUserName.getText().toString();
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                User user = db.userDao().findByUsername(username);
-                if (user != null) {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            LayoutInflater inflater = getLayoutInflater();
-                            View dialogView = inflater.inflate(R.layout.dialog_update_user, null);
+        userController.findUserByUsername(username, user -> {
+            if (user != null) {
+                runOnUiThread(() -> {
+                    LayoutInflater inflater = getLayoutInflater();
+                    View dialogView = inflater.inflate(R.layout.dialog_update_user, null);
 
-                            EditText etUpdateUserName = dialogView.findViewById(R.id.et_update_user_name);
-                            EditText etUpdateUserEmail = dialogView.findViewById(R.id.et_update_user_email);
-                            EditText etUpdateUserPassword = dialogView.findViewById(R.id.et_update_user_password);
-                            Button btnUpdateConfirm = dialogView.findViewById(R.id.btn_update_confirm);
-                            Button btnUpdateCancel = dialogView.findViewById(R.id.btn_update_cancel);
+                    EditText etUpdateUserName = dialogView.findViewById(R.id.et_update_user_name);
+                    EditText etUpdateUserEmail = dialogView.findViewById(R.id.et_update_user_email);
+                    EditText etUpdateUserPassword = dialogView.findViewById(R.id.et_update_user_password);
+                    Button btnUpdateConfirm = dialogView.findViewById(R.id.btn_update_confirm);
+                    Button btnUpdateCancel = dialogView.findViewById(R.id.btn_update_cancel);
 
-                            etUpdateUserName.setText(user.getUsername());
-                            etUpdateUserEmail.setText(user.getEmail());
-                            etUpdateUserPassword.setText(user.getPassword());
+                    etUpdateUserName.setText(user.getUsername());
+                    etUpdateUserEmail.setText(user.getEmail());
+                    etUpdateUserPassword.setText(user.getPassword());
 
-                            AlertDialog.Builder builder = new AlertDialog.Builder(UsersActivity.this);
-                            builder.setView(dialogView);
-                            AlertDialog dialog = builder.create();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(UsersActivity.this);
+                    builder.setView(dialogView);
+                    AlertDialog dialog = builder.create();
 
-                            btnUpdateConfirm.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    user.setUsername(etUpdateUserName.getText().toString());
-                                    user.setEmail(etUpdateUserEmail.getText().toString());
-                                    user.setPassword(etUpdateUserPassword.getText().toString());
-                                    executorService.execute(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            db.userDao().update(user);
-                                            runOnUiThread(new Runnable() {
-                                                @Override
-                                                public void run() {
-                                                    loadUsers();
-                                                    dialog.dismiss();
-                                                }
-                                            });
-                                        }
-                                    });
-                                }
-                            });
-
-                            btnUpdateCancel.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    dialog.dismiss();
-                                }
-                            });
-
-                            dialog.show();
-                        }
+                    btnUpdateConfirm.setOnClickListener(v -> {
+                        user.setUsername(etUpdateUserName.getText().toString());
+                        user.setEmail(etUpdateUserEmail.getText().toString());
+                        user.setPassword(etUpdateUserPassword.getText().toString());
+                        userController.updateUser(user, this::loadUsers);
+                        dialog.dismiss();
                     });
-                } else {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            // Handle the case where the user is not found
-                            // For example, show a message or log an error
-                        }
-                    });
-                }
+
+                    btnUpdateCancel.setOnClickListener(v -> dialog.dismiss());
+
+                    dialog.show();
+                });
+            } else {
+                runOnUiThread(() -> {
+                    // Handle the case where the user is not found
+                    // For example, show a message or log an error
+                });
             }
         });
     }
@@ -155,62 +102,20 @@ public class UsersActivity extends AppCompatActivity {
         newUser.setEmail(etUserEmail.getText().toString());
         newUser.setPassword(etUserPassword.getText().toString());
         newUser.setRole(spinnerUserRole.getSelectedItem().toString());
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                db.userDao().insertAll(newUser);
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        loadUsers();
-                    }
-                });
-            }
-        });
+        userController.addUser(newUser, this::loadUsers);
     }
 
     private void deleteUser() {
         String usernameOrEmail = etUserName.getText().toString();
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                User user = db.userDao().findByUsernameOrEmail(usernameOrEmail);
-                if (user != null) {
-                    db.userDao().delete(user);
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            loadUsers();
-                        }
-                    });
-                } else {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            // Handle the case where the user is not found
-                            // For example, show a message or log an error
-                        }
-                    });
-                }
-            }
-        });
+        userController.deleteUser(usernameOrEmail, this::loadUsers);
     }
 
     private void loadUsers() {
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                final List<User> users = db.userDao().getAll();
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (users != null) {
-                            UserAdapter adapter = new UserAdapter(UsersActivity.this, users);
-                            lvUsers.setAdapter(adapter);
-                        }
-                    }
-                });
+        userController.loadUsers(users -> runOnUiThread(() -> {
+            if (users != null) {
+                UserAdapter adapter = new UserAdapter(UsersActivity.this, users);
+                lvUsers.setAdapter(adapter);
             }
-        });
+        }));
     }
 }
