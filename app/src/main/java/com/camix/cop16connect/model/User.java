@@ -2,6 +2,9 @@ package com.camix.cop16connect.model;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 @Entity(tableName = "users")
 public class User {
@@ -13,18 +16,11 @@ public class User {
     private String email;
     private String createdAt;
 
-    public User(int id, String username, String password, String role, String email, String createdAt) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.role = role;
-        this.email = email;
-        this.createdAt = createdAt;
+    public User() {
+        this.createdAt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
     }
 
-    public User() {}
-
-    // Getters y setters
+    // Getters and setters
     public int getId() {
         return id;
     }

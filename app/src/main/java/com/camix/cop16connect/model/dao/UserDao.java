@@ -19,6 +19,9 @@ public interface UserDao {
     @Query("SELECT * FROM users WHERE username LIKE :username LIMIT 1")
     User findByUsername(String username);
 
+    @Query("SELECT * FROM users WHERE username = :username AND password = :password LIMIT 1")
+    User login(String username, String password);
+
     @Insert
     void insertAll(User... users);
 
@@ -27,4 +30,7 @@ public interface UserDao {
 
     @Delete
     void delete(User user);
+
+    @Query("SELECT COUNT(*) FROM users")
+    int getUserCount();
 }
