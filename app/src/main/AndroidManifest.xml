@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,9 +18,14 @@
         android:theme="@style/Theme.COP16Connect"
         tools:targetApi="31">
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBfs1Vzio9tkdbt--wJ_edkuZejfA7ukII" />
+
         <activity
             android:name=".view.MainActivity"
             android:exported="true">
+            <!-- Main activity -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -24,32 +34,54 @@
 
         <activity
             android:name=".view.LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+            <!-- Login activity -->
+        </activity>
 
         <activity
             android:name=".view.admin.AdminActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+            <!-- Admin activity -->
+        </activity>
 
         <!-- Admin -->
 
         <activity
             android:name=".view.admin.SpeciesActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+            <!-- Species activity -->
+        </activity>
         <activity
             android:name=".view.admin.LocationActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+            <!-- Location activity -->
+        </activity>
         <activity
             android:name=".view.admin.HabitatsActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+            <!-- Habitats activity -->
+        </activity>
         <activity
             android:name=".view.admin.HabitatsLocationsActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+            <!-- Habitats Locations activity -->
+        </activity>
         <activity
             android:name=".view.admin.EventActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+            <!-- Event activity -->
+        </activity>
         <activity
             android:name=".view.admin.UsersActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+            <!-- Users activity -->
+        </activity>
+
+        <activity
+            android:name=".view.UserClientActivity"
+            android:exported="true">
+            <!-- User Client activity -->
+        </activity>
 
     </application>
 
