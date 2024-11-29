@@ -1,4 +1,3 @@
-// UserClientActivity.java
 package com.camix.cop16connect.view;
 
 import android.os.Bundle;
