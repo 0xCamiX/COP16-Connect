@@ -6,83 +6,72 @@
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/et_scientific_name"
+        android:id="@+id/et_update_scientific_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Scientific Name" />
 
     <EditText
-        android:id="@+id/et_common_name"
+        android:id="@+id/et_update_common_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Scientific Name" />
+        android:hint="Common Name" />
 
     <EditText
-        android:id="@+id/et_species_description"
+        android:id="@+id/et_update_species_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Species Description" />
 
     <Spinner
-        android:id="@+id/spinner_conservation_status"
+        android:id="@+id/spinner_update_conservation_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Spinner
-        android:id="@+id/spinner_kingdom"
+        android:id="@+id/spinner_update_kingdom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Spinner
-        android:id="@+id/spinner_phylum"
+        android:id="@+id/spinner_update_phylum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Spinner
-        android:id="@+id/spinner_class"
+        android:id="@+id/spinner_update_class"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Spinner
-        android:id="@+id/spinner_order"
+        android:id="@+id/spinner_update_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Spinner
-        android:id="@+id/spinner_family"
+        android:id="@+id/spinner_update_family"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Spinner
-        android:id="@+id/spinner_genus"
+        android:id="@+id/spinner_update_genus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Spinner
-        android:id="@+id/spinner_habitat"
+        android:id="@+id/spinner_update_habitat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/btn_add_species"
+        android:id="@+id/btn_update_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Species" />
+        android:text="Update" />
 
     <Button
-        android:id="@+id/btn_update_species"
+        android:id="@+id/btn_update_cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Update Species" />
-
-    <Button
-        android:id="@+id/btn_delete_species"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Delete Species" />
-
-    <ListView
-        android:id="@+id/lv_species"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="Cancel" />
 </LinearLayout>

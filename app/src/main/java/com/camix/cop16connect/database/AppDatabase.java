@@ -16,22 +16,8 @@ import com.camix.cop16connect.model.dao.HabitatDao;
 import com.camix.cop16connect.model.dao.LocationDao;
 import com.camix.cop16connect.model.dao.SpeciesDao;
 import com.camix.cop16connect.model.dao.UserDao;
-import com.camix.cop16connect.model.dao.taxonomy.ClassTaxDao;
-import com.camix.cop16connect.model.dao.taxonomy.FamilyDao;
-import com.camix.cop16connect.model.dao.taxonomy.GenusDao;
-import com.camix.cop16connect.model.dao.taxonomy.KingdomDao;
-import com.camix.cop16connect.model.dao.taxonomy.OrderDao;
-import com.camix.cop16connect.model.dao.taxonomy.PhylumDao;
-import com.camix.cop16connect.model.taxonomy.ClassTax;
-import com.camix.cop16connect.model.taxonomy.Family;
-import com.camix.cop16connect.model.taxonomy.Genus;
-import com.camix.cop16connect.model.taxonomy.Kingdoms;
-import com.camix.cop16connect.model.taxonomy.Order;
-import com.camix.cop16connect.model.taxonomy.Phylum;
 
-@Database(entities = {User.class, Event.class, Habitat.class, Species.class, Location.class,
-        Kingdoms.class, Phylum.class, ClassTax.class, Order.class, Family.class, Genus.class},
-        version = 1)
+@Database(entities = {User.class, Event.class, Habitat.class, Species.class, Location.class}, version = 3)
 public abstract class AppDatabase extends RoomDatabase {
     private static volatile AppDatabase INSTANCE;
 
@@ -40,7 +26,9 @@ public abstract class AppDatabase extends RoomDatabase {
             synchronized (AppDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            AppDatabase.class, "COP16_DATABASE").build();
+                                    AppDatabase.class, "COP16_DATABASE")
+                            .fallbackToDestructiveMigration()
+                            .build();
                 }
             }
         }
@@ -56,16 +44,4 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract SpeciesDao speciesDao();
 
     public abstract LocationDao locationDao();
-
-    public abstract KingdomDao kingdomDao();
-
-    public abstract PhylumDao phylumDao();
-
-    public abstract ClassTaxDao classTaxDao();
-
-    public abstract OrderDao orderDao();
-
-    public abstract FamilyDao familyDao();
-
-    public abstract GenusDao genusDao();
 }

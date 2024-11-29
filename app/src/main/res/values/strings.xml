@@ -1,7 +1,199 @@
 <resources>
+    <!-- App name -->
     <string name="app_name">COP16 Connect</string>
     <string-array name="user_roles">
         <item>admin</item>
         <item>user</item>
+    </string-array>
+    <string-array name="conservation_status_array">
+        <item>Least Concern</item>
+        <item>Near Threatened</item>
+        <item>Vulnerable</item>
+        <item>Endangered</item>
+        <item>Critically Endangered</item>
+        <item>Extinct in the Wild</item>
+        <item>Extinct</item>
+    </string-array>
+
+    <string-array name="kingdom_array">
+        <item>Animalia</item>
+        <item>Plantae</item>
+    </string-array>
+
+    <string-array name="phylum_array">
+        <item>Chordata</item>
+        <item>Arthropoda</item>
+        <item>Mollusca</item>
+        <item>Echinodermata</item>
+        <item>Cnidaria</item>
+        <item>Platyhelminthes</item>
+        <item>Nematoda</item>
+        <item>Annelida</item>
+        <item>Porifera</item>
+        <item>Magnoliophyta</item>
+        <item>Pteridophyta</item>
+        <item>Bryophyta</item>
+        <item>Ginkgophyta</item>
+        <item>Cycadophyta</item>
+        <item>Coniferophyta</item>
+    </string-array>
+
+    <string-array name="class_array">
+        <item>Mammalia</item>
+        <item>Birds</item>
+        <item>Reptilia</item>
+        <item>Amphibia</item>
+        <item>Actinopterygii</item>
+        <item>Cephalopoda</item>
+        <item>Gastropoda</item>
+        <item>Bivalvia</item>
+        <item>Echinoidea</item>
+        <item>Asteroidea</item>
+        <item>Anthozoa</item>
+        <item>Hydrozoa</item>
+        <item>Turbellaria</item>
+        <item>Cestoda</item>
+        <item>Trematoda</item>
+        <item>Secernentea</item>
+        <item>Chromadorea</item>
+        <item>Polychaeta</item>
+        <item>Clitellata</item>
+        <item>Calcarea</item>
+        <item>Demospongiae</item>
+        <item>Magnoliopsida</item>
+        <item>Liliopsida</item>
+        <item>Bryopsida</item>
+        <item>Marchantiopsida</item>
+        <item>Cycadopsida</item>
+        <item>Pinopsida</item>
+        <item>Ginkgopsida</item>
+        <item>Filicopsida</item>
+        <item>Ophiuroidea</item>
+        <item>Holothuroidea</item>
+        <item>Zygomycetes</item>
+        <item>Basidiomycetes</item>
+        <item>Saccharomycetes</item>
+        <item>Protozoa</item>
+        <item>Dinophyceae</item>
+        <item>Chlorophyceae</item>
+        <item>Charophyceae</item>
+        <item>Magnoliidae</item>
+        <item>Liliidae</item>
+    </string-array>
+
+    <string-array name="order_array">
+        <item>Primates</item>
+        <item>Carnivora</item>
+        <item>Rodentia</item>
+        <item>Cetacea</item>
+        <item>Chiroptera</item>
+        <item>Passeriformes</item>
+        <item>Psittaciformes</item>
+        <item>Falconiformes</item>
+        <item>Anura</item>
+        <item>Caudata</item>
+        <item>Gymnophiona</item>
+        <item>Squamata</item>
+        <item>Testudines</item>
+        <item>Crocodylia</item>
+        <item>Perciformes</item>
+        <item>Cypriniformes</item>
+        <item>Siluriformes</item>
+        <item>Sepiida</item>
+        <item>Octopoda</item>
+        <item>Nautilida</item>
+        <item>Stylommatophora</item>
+        <item>Nudibranchia</item>
+        <item>Unionoida</item>
+        <item>Pteriomorphia</item>
+        <item>Forcipulatide</item>
+        <item>Clypeasterida</item>
+        <item>Gorgonacea</item>
+        <item>Scleractinia</item>
+        <item>Planarida</item>
+        <item>Cyclophyllidea</item>
+        <item>Aspidogastrea</item>
+        <item>Strongylida</item>
+        <item>Ascaridida</item>
+        <item>Eunicida</item>
+        <item>Opisthopora</item>
+        <item>Astrophorida</item>
+        <item>Dictyoceratida</item>
+        <item>Rosales</item>
+        <item>Poales</item>
+    </string-array>
+
+    <string-array name="family_array">
+        <item>Hominidae</item>
+        <item>Canidae</item>
+        <item>Felidae</item>
+        <item>Muridae</item>
+        <item>Bovidae</item>
+        <item>Delphinidae</item>
+        <item>Pteropodidae</item>
+        <item>Emberizidae</item>
+        <item>Psittacidae</item>
+        <item>Falconidae</item>
+        <item>Bufonidae</item>
+        <item>Ranidae</item>
+        <item>Ambystomatidae</item>
+        <item>Colubridae</item>
+        <item>Cheloniidae</item>
+        <item>Crocodylidae</item>
+        <item>Cichlidae</item>
+        <item>Cyprinidae</item>
+        <item>Clariidae</item>
+        <item>Sepiidae</item>
+        <item>Octopodidae</item>
+        <item>Nautilidae</item>
+        <item>Helicidae</item>
+        <item>Dorididae</item>
+        <item>Unionidae</item>
+        <item>Pectinidae</item>
+        <item>Gorgoniidae</item>
+        <item>Acroporidae</item>
+        <item>Planariidae</item>
+        <item>Taeniidae</item>
+        <item>Aspidogastridae</item>
+        <item>Strongylidae</item>
+        <item>Ascarididae</item>
+        <item>Eunicidae</item>
+        <item>Lumbricidae</item>
+        <item>Rosaceae</item>
+        <item>Poaceae</item>
+    </string-array>
+
+    <string-array name="genus_array">
+        <item>Homo</item>
+        <item>Canis</item>
+        <item>Felis</item>
+        <item>Mus</item>
+        <item>Bos</item>
+        <item>Delphinus</item>
+        <item>Pteropus</item>
+        <item>Passer</item>
+        <item>Ara</item>
+        <item>Falco</item>
+        <item>Bufo</item>
+        <item>Frog</item>
+        <item>Ambystoma</item>
+        <item>Pantherophis</item>
+        <item>Chelonia</item>
+        <item>Crocodylus</item>
+        <item>Cichla</item>
+        <item>Cyprinus</item>
+        <item>Clarias</item>
+        <item>Sepia</item>
+        <item>Octopus</item>
+        <item>Nautilus</item>
+        <item>Helix</item>
+        <item>Doris</item>
+        <item>Unio</item>
+        <item>Pecten</item>
+        <item>Gorgonia</item>
+        <item>Acropora</item>
+        <item>Planaria</item>
+        <item>Taenia</item>
+        <item>Aspidogaster</item>
     </string-array>
 </resources>

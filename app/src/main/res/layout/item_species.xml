@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tv_common_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Species Name"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_scientific_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scientific Name"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_conservation_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Conservation Status"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_species_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Species Description"
+        android:textSize="14sp" />
+</LinearLayout>

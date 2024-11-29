@@ -9,34 +9,29 @@ public class Species {
     private int id;
     private String scientificName;
     private String commonName;
+    private String description;
     private String conservationStatus;
-    private int kingdomId;
-    private int phylumId;
-    private int classId;
-    private int orderId;
-    private int familyId;
-    private int genusId;
-    private int habitId;
+    private String kingdom;
+    private String phylum;
+    private String classTax;
+    private String order;
+    private String family;
+    private String genus;
+    private String habit;
 
-    public Species(int id, String scientificName, String commonName, String conservationStatus, int kingdomId, int phylumId, int classId, int orderId, int familyId, int genusId, int habitId) {
-        this.id = id;
-        this.scientificName = scientificName;
-        this.commonName = commonName;
-        this.conservationStatus = conservationStatus;
-        this.kingdomId = kingdomId;
-        this.phylumId = phylumId;
-        this.classId = classId;
-        this.orderId = orderId;
-        this.familyId = familyId;
-        this.genusId = genusId;
-        this.habitId = habitId;
-    }
-
-    // Constructor sin argumentos requerido por Room
+    // Constructors
     public Species() {
     }
 
-    // Getters y setters
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    // Getters and setters
     public int getId() {
         return id;
     }
@@ -69,59 +64,59 @@ public class Species {
         this.conservationStatus = conservationStatus;
     }
 
-    public int getKingdomId() {
-        return kingdomId;
+    public String getKingdom() {
+        return kingdom;
     }
 
-    public void setKingdomId(int kingdomId) {
-        this.kingdomId = kingdomId;
+    public void setKingdom(String kingdom) {
+        this.kingdom = kingdom;
     }
 
-    public int getPhylumId() {
-        return phylumId;
+    public String getPhylum() {
+        return phylum;
     }
 
-    public void setPhylumId(int phylumId) {
-        this.phylumId = phylumId;
+    public void setPhylum(String phylum) {
+        this.phylum = phylum;
     }
 
-    public int getClassId() {
-        return classId;
+    public String getClassTax() {
+        return classTax;
     }
 
-    public void setClassId(int classId) {
-        this.classId = classId;
+    public void setClassTax(String classTax) {
+        this.classTax = classTax;
     }
 
-    public int getOrderId() {
-        return orderId;
+    public String getOrder() {
+        return order;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setOrder(String order) {
+        this.order = order;
     }
 
-    public int getFamilyId() {
-        return familyId;
+    public String getFamily() {
+        return family;
     }
 
-    public void setFamilyId(int familyId) {
-        this.familyId = familyId;
+    public void setFamily(String family) {
+        this.family = family;
     }
 
-    public int getGenusId() {
-        return genusId;
+    public String getGenus() {
+        return genus;
     }
 
-    public void setGenusId(int genusId) {
-        this.genusId = genusId;
+    public void setGenus(String genus) {
+        this.genus = genus;
     }
 
-    public int getHabitId() {
-        return habitId;
+    public String getHabit() {
+        return habit;
     }
 
-    public void setHabitId(int habitId) {
-        this.habitId = habitId;
+    public void setHabit(String habit) {
+        this.habit = habit;
     }
 }
