@@ -73,7 +73,6 @@ public class SpeciesActivity extends AppCompatActivity {
         setSpinnerAdapter(spinnerFamily, R.array.family_array);
         setSpinnerAdapter(spinnerGenus, R.array.genus_array);
 
-
         btnAddSpecies.setOnClickListener(v -> addSpecies());
         btnUpdateSpecies.setOnClickListener(v -> showUpdateSpeciesDialog());
         btnDeleteSpecies.setOnClickListener(v -> deleteSpecies());
@@ -94,8 +93,7 @@ public class SpeciesActivity extends AppCompatActivity {
     private void loadSpecies() {
         speciesController.loadSpecies(speciesList -> runOnUiThread(() -> {
             if (speciesList != null) {
-                SpeciesAdapter adapter = new SpeciesAdapter(SpeciesActivity.this, speciesList);
-                lvSpecies.setAdapter(adapter);
+                speciesAdapter.updateSpecies(speciesList);
             }
         }));
     }
@@ -121,7 +119,6 @@ public class SpeciesActivity extends AppCompatActivity {
         newSpecies.setOrder(spinnerOrder.getSelectedItem().toString());
         newSpecies.setFamily(spinnerFamily.getSelectedItem().toString());
         newSpecies.setGenus(spinnerGenus.getSelectedItem().toString());
-
         newSpecies.setHabit(spinnerHabitat.getSelectedItem().toString());
 
         speciesController.addSpecies(newSpecies, () -> runOnUiThread(() -> {
@@ -137,10 +134,16 @@ public class SpeciesActivity extends AppCompatActivity {
             return;
         }
 
-        speciesController.deleteSpeciesByScientificName(speciesScientificName, () -> runOnUiThread(() -> {
-            Toast.makeText(this, "Species deleted successfully", Toast.LENGTH_SHORT).show();
-            loadSpecies();
-        }));
+        speciesController.findSpeciesByScientificName(speciesScientificName, species -> {
+            if (species != null) {
+                speciesController.deleteSpeciesByScientificName(speciesScientificName, () -> runOnUiThread(() -> {
+                    Toast.makeText(this, "Species deleted successfully", Toast.LENGTH_SHORT).show();
+                    loadSpecies();
+                }));
+            } else {
+                runOnUiThread(() -> Toast.makeText(this, "Species not found", Toast.LENGTH_SHORT).show());
+            }
+        });
     }
 
     private void showUpdateSpeciesDialog() {
@@ -201,9 +204,9 @@ public class SpeciesActivity extends AppCompatActivity {
 
                     btnUpdateConfirm.setOnClickListener(v -> {
                         Species updatedSpecies = new Species();
-                        updatedSpecies.setScientificName(etUpdateScientificName.getText().toString());
-                        updatedSpecies.setCommonName(etUpdateCommonName.getText().toString());
-                        updatedSpecies.setDescription(etUpdateDescription.getText().toString());
+                        updatedSpecies.setScientificName(etUpdateScientificName.getText().toString().trim());
+                        updatedSpecies.setCommonName(etUpdateCommonName.getText().toString().trim());
+                        updatedSpecies.setDescription(etUpdateDescription.getText().toString().trim());
                         updatedSpecies.setConservationStatus(spinnerUpdateConservationStatus.getSelectedItem().toString());
                         updatedSpecies.setKingdom(spinnerUpdateKingdom.getSelectedItem().toString());
                         updatedSpecies.setPhylum(spinnerUpdatePhylum.getSelectedItem().toString());
@@ -213,8 +216,11 @@ public class SpeciesActivity extends AppCompatActivity {
                         updatedSpecies.setGenus(spinnerUpdateGenus.getSelectedItem().toString());
                         updatedSpecies.setHabit(spinnerUpdateHabit.getSelectedItem().toString());
 
-                        speciesController.updateSpeciesByScientificName(speciesName, updatedSpecies, this::loadSpecies);
-                        dialog.dismiss();
+                        speciesController.updateSpeciesByScientificName(speciesName, updatedSpecies, () -> runOnUiThread(() -> {
+                            Toast.makeText(SpeciesActivity.this, "Species updated successfully", Toast.LENGTH_SHORT).show();
+                            loadSpecies();
+                            dialog.dismiss();
+                        }));
                     });
 
                     btnUpdateCancel.setOnClickListener(v -> dialog.dismiss());
@@ -226,8 +232,6 @@ public class SpeciesActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
     private void setSpinnerAdapter(Spinner spinner, int arrayResId) {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, arrayResId, android.R.layout.simple_spinner_item);

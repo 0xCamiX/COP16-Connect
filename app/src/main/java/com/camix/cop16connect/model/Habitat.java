@@ -11,12 +11,14 @@ public class Habitat {
     private String description;
 
     private String image;
+    private String locationId;
 
-    public Habitat(int id, String name, String description, String image) {
+    public Habitat(int id, String name, String description, String image, String locationId) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.image = image;
+        this.locationId = locationId;
     }
 
     // Constructor sin argumentos requerido por Room
@@ -50,6 +52,14 @@ public class Habitat {
 
     public String getImage() {
         return image;
+    }
+
+    public String getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(String locationId) {
+        this.locationId = locationId;
     }
 
     public void setImage(String image) {

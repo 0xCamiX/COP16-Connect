@@ -15,7 +15,7 @@
         android:id="@+id/et_common_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Scientific Name" />
+        android:hint="Common Name" />
 
     <EditText
         android:id="@+id/et_species_description"

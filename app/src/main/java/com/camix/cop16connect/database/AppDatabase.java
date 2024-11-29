@@ -17,7 +17,7 @@ import com.camix.cop16connect.model.dao.LocationDao;
 import com.camix.cop16connect.model.dao.SpeciesDao;
 import com.camix.cop16connect.model.dao.UserDao;
 
-@Database(entities = {User.class, Event.class, Habitat.class, Species.class, Location.class}, version = 3)
+@Database(entities = {User.class, Event.class, Habitat.class, Species.class, Location.class}, version = 4)
 public abstract class AppDatabase extends RoomDatabase {
     private static volatile AppDatabase INSTANCE;
 

@@ -24,6 +24,12 @@ public interface HabitatDao {
     @Query("SELECT * FROM habitats WHERE name = :name LIMIT 1")
     Habitat findByName(String name);
 
+    @Query("SELECT * FROM habitats WHERE id = :id LIMIT 1")
+    Habitat get(int id);
+
+    @Query("SELECT * FROM habitats WHERE name = :name")
+    Habitat getByName(String name);
+
     @Query("SELECT * FROM habitats")
     List<Habitat> getAll();
 }

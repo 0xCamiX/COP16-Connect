@@ -4,7 +4,9 @@ import android.content.Context;
 
 import com.camix.cop16connect.database.AppDatabase;
 import com.camix.cop16connect.model.Habitat;
+import com.camix.cop16connect.model.Location;
 import com.camix.cop16connect.model.dao.HabitatDao;
+import com.camix.cop16connect.model.dao.LocationDao;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -13,11 +15,13 @@ import java.util.function.Consumer;
 
 public class HabitatController {
     private final HabitatDao habitatDao;
+    private final LocationDao locationDao;
     private final ExecutorService executorService;
 
     public HabitatController(Context context) {
         AppDatabase db = AppDatabase.getInstance(context);
         habitatDao = db.habitatDao();
+        locationDao = db.locationDao();
         executorService = Executors.newSingleThreadExecutor();
     }
 
